@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dit4eehvbaek8"]
+
+[ext_resource type="PackedScene" uid="uid://cghdnfa2cnugh" path="res://pawn.glb" id="1_augvb"]
+[ext_resource type="Material" uid="uid://dgyaxa7ofvf1r" path="res://pawn_bottom.tres" id="2_p2eup"]
+[ext_resource type="Material" uid="uid://cct5px2yj1uwt" path="res://pawn_top.tres" id="3_is2gf"]
+
+[node name="pawn" unique_id=1511218703 instance=ExtResource("1_augvb")]
+
+[node name="Cylinder" parent="." index="0" unique_id=519210438]
+surface_material_override/0 = ExtResource("2_p2eup")
+
+[node name="Cube" parent="." index="1" unique_id=999036037]
+surface_material_override/0 = ExtResource("3_is2gf")

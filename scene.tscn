@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dhl1bpasrr108"]
+
+[ext_resource type="Script" uid="uid://d3ibih8vsebai" path="res://scene.gd" id="1_ulcgi"]
+[ext_resource type="PackedScene" uid="uid://by2pg73xtflb5" path="res://test.tscn" id="2_nxogm"]
+[ext_resource type="PackedScene" uid="uid://dit4eehvbaek8" path="res://pawn.tscn" id="3_3253y"]
+
+[node name="Root" type="Node3D" unique_id=1282885412]
+script = ExtResource("1_ulcgi")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=910676378]
+transform = Transform3D(0.99999666, -0.0012095204, 0.0022791494, 0, 0.88332075, 0.46876904, -0.0025802054, -0.46876746, 0.8833179, 1.0714505, 2.294646, 4.2885437)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=432703554]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1841077613]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2040047355]
+layout_mode = 2
+text = "Asdf"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=667886275]
+
+[node name="test2" parent="." unique_id=1267759256 instance=ExtResource("2_nxogm")]
+transform = Transform3D(-0.40347055, 0.20802484, -0.20961192, -0.22893381, -0.44450992, -0.0004821366, -0.1865498, 0.09558548, 0.45394117, 0, 0, 0)
+
+[node name="test" parent="." unique_id=1267118543 instance=ExtResource("2_nxogm")]
+transform = Transform3D(0.45212328, 0, 0.21350536, 0, 0.5, 0, -0.21350536, 0, 0.45212328, 2.823047, 1.2165772, 0)
+
+[node name="pawn" parent="." unique_id=1511218703 instance=ExtResource("3_3253y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02743864, 0, -2.2081814)

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://by2pg73xtflb5"]
+
+[ext_resource type="PackedScene" uid="uid://ds8vbx6bnxbdn" path="res://test.glb" id="1_6uqi0"]
+[ext_resource type="Material" uid="uid://7tkxkufsgtjx" path="res://gold.tres" id="2_ppyta"]
+[ext_resource type="Material" uid="uid://m4hfdaqfchrm" path="res://red.tres" id="3_ykrsh"]
+
+[node name="test" unique_id=1267118543 instance=ExtResource("1_6uqi0")]
+
+[node name="Cube" parent="." index="0" unique_id=1270296501]
+surface_material_override/0 = ExtResource("2_ppyta")
+
+[node name="Cube_001" parent="." index="1" unique_id=1918159959]
+surface_material_override/0 = ExtResource("3_ykrsh")

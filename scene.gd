@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 	var intersected_mesh: MeshInstance3D
 	
 	for mesh: MeshInstance3D in meshes:
-		intersection = mesh.intersect_ray(origin, normal)
+		intersection = mesh.intersect_ray(origin, normal, true)
 		if not intersection.is_empty() and intersection["success"]:
 			intersected_mesh = mesh
 			success = true
@@ -41,6 +41,10 @@ func _physics_process(_delta: float) -> void:
 		var from: Vector3 = intersection["position"]
 		var to: Vector3 = intersection["position"] + intersection["normal"]
 		mat = intersected_mesh.get_surface_override_material(intersection["surface"])
+		
+		if not mat and intersection.has("material"):
+			mat = intersection["material"]
+		
 		DebugDraw3D.draw_line(from, to, Color(1.0, 0.0, 0.0, 1.0))
 
 	label.text = ( \
@@ -50,7 +54,10 @@ func _physics_process(_delta: float) -> void:
 		"Intersection: %s\n" +
 		"Point: %v\n" +
 		"Normal: %v\n" +
-		"Material: %s" \
+		"Surface: %s\n" +
+		"Material: %s\n" +
+		"UV: %v\n" +
+		"UV2: %v\n" \
 		) % [
 			screen_position,
 			origin,
@@ -58,5 +65,8 @@ func _physics_process(_delta: float) -> void:
 			"Yes" if success else "No",
 			intersection["position"] if success else Vector3.ZERO,
 			intersection["normal"] if success else Vector3.ZERO,
-			mat.resource_path if mat else "None"
+			intersection["surface"] if intersection.has("surface") else "None",
+			mat.resource_path if mat else "None",
+			intersection["uv"] if intersection.has("uv") else Vector2.ZERO,
+			intersection["uv2"] if intersection.has("uv2") else Vector2.ZERO
 		]

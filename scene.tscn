@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3ibih8vsebai" path="res://scene.gd" id="1_ulcgi"]
 [ext_resource type="PackedScene" uid="uid://by2pg73xtflb5" path="res://test.tscn" id="2_nxogm"]
 [ext_resource type="PackedScene" uid="uid://dit4eehvbaek8" path="res://pawn.tscn" id="3_3253y"]
+[ext_resource type="PackedScene" uid="uid://d0irko3uslvtv" path="res://cube.glb" id="4_u3cyc"]
 
 [node name="Root" type="Node3D" unique_id=1282885412]
 script = ExtResource("1_ulcgi")
@@ -42,3 +43,6 @@ transform = Transform3D(0.45212328, 0, 0.21350536, 0, 0.5, 0, -0.21350536, 0, 0.
 
 [node name="pawn" parent="." unique_id=1511218703 instance=ExtResource("3_3253y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02743864, 0, -2.2081814)
+
+[node name="cube" parent="." unique_id=717279478 instance=ExtResource("4_u3cyc")]
+transform = Transform3D(-0.9659258, 0, 0.25881895, 0, 1, 0, -0.25881895, 0, -0.9659258, 2.3347576, -1.0662768, -0.5193498)

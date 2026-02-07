@@ -40,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 	if success:
 		var from: Vector3 = intersection["position"]
 		var to: Vector3 = intersection["position"] + intersection["normal"]
-		mat = intersected_mesh.get_surface_override_material(intersection["surface"])
+		mat = intersected_mesh.get_surface_override_material(intersection["surface_index"])
 		
 		if not mat and intersection.has("material"):
 			mat = intersection["material"]
@@ -55,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 		"Point: %v\n" +
 		"Normal: %v\n" +
 		"Surface: %s\n" +
+		"Face: %s\n" +
 		"Material: %s\n" +
 		"UV: %v\n" +
 		"UV2: %v\n" \
@@ -65,7 +66,8 @@ func _physics_process(_delta: float) -> void:
 			"Yes" if success else "No",
 			intersection["position"] if success else Vector3.ZERO,
 			intersection["normal"] if success else Vector3.ZERO,
-			intersection["surface"] if intersection.has("surface") else "None",
+			intersection["surface_index"] if intersection.has("surface_index") else "None",
+			intersection["face_index"] if intersection.has("face_index") else "None",
 			mat.resource_path if mat else "None",
 			intersection["uv"] if intersection.has("uv") else Vector2.ZERO,
 			intersection["uv2"] if intersection.has("uv2") else Vector2.ZERO
